@@ -47,7 +47,7 @@ const Task = () => {
             });
             fetchTasks();
         } catch (error) {
-            console.error('Error deleting task:', error);
+            console.error('Error', error);
         }
     };
 
@@ -63,6 +63,7 @@ const Task = () => {
 
     return (
         <div className="task">
+            <h1>ToDo List</h1>
             <button className="add-task-btn" onClick={() => setShowModal(true)}>
                 Agregar Tarea
             </button>
@@ -97,8 +98,8 @@ const Task = () => {
                     <div className="task-card" key={task.id}>
                         <h3>{task.title}</h3>
                         <p>{task.description}</p>
-                        <p>Estado: {task.status}</p>
-                        <p>Fecha: {formatDate(task.createdAt)}</p>
+                        <p><strong>Estado:</strong> {task.status}</p>
+                        <p><strong>Fecha: </strong>{formatDate(task.createdAt)}</p>
                         <button className="btn-eliminar" onClick={() => handleDeleteTask(task.id)}>Eliminar</button>
                     </div>
                 ))}
